@@ -22,10 +22,4 @@
     <ProjectReference Include="..\CuentasAhorro.Data\CuentasAhorro.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Context\" />
-    <Folder Include="Implementation\" />
-    <Folder Include="Interface\" />
-  </ItemGroup>
-
 </Project>

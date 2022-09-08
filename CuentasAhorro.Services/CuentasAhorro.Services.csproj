@@ -17,4 +17,19 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CuentasAhorro.Application\CuentasAhorro.Application.csproj" />
+    <ProjectReference Include="..\CuentasAhorro.Data\CuentasAhorro.Data.csproj" />
+    <ProjectReference Include="..\CuentasAhorro.Identity\CuentasAhorro.Identity.csproj" />
+    <ProjectReference Include="..\CuentasAhorro.Repository\CuentasAhorro.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="Implementation\" />
+    <Folder Include="Interface\" />
+    <Folder Include="Mappings\" />
+    <Folder Include="Wrappers\" />
+  </ItemGroup>
+
 </Project>

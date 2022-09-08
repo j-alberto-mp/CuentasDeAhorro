@@ -18,4 +18,10 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CuentasAhorro.Identity\CuentasAhorro.Identity.csproj" />
+    <ProjectReference Include="..\CuentasAhorro.Repository\CuentasAhorro.Repository.csproj" />
+    <ProjectReference Include="..\CuentasAhorro.Services\CuentasAhorro.Services.csproj" />
+  </ItemGroup>
+
 </Project>

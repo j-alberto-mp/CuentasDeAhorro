@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.8" />
   </ItemGroup>
@@ -17,6 +16,10 @@
     <ProjectReference Include="..\CuentasAhorro.DependencyResolution\CuentasAhorro.DependencyResolution.csproj" />
     <ProjectReference Include="..\CuentasAhorro.Identity\CuentasAhorro.Identity.csproj" />
     <ProjectReference Include="..\CuentasAhorro.Services\CuentasAhorro.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\home\" />
   </ItemGroup>
 
 </Project>

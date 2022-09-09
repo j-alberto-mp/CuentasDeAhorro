@@ -1,8 +1,25 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1>Bienvenido</h1>
+<br />
+<div class="cards">
+    <section class="cards__card">
+        <h1><i class="fi fi-rr-users-alt"></i></h1>
+        <h5>Clientes</h5>
+    </section>
+    <section class="cards__card">
+        <h1><i class="fi fi-rr-file-invoice-dollar"></i></h1>
+        <h5>Cuentas</h5>
+    </section>
 </div>
+
+@section scripts {
+    <environment include="Development">
+        <script type="text/javascript" src="~/js/home/index.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script type="text/javascript" src="~/js/home/index.min.js" asp-append-version="true"></script>
+    </environment>
+}

@@ -1,0 +1,1 @@
+﻿$('.container__sidebar').addClass('hidden');

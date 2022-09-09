@@ -1,46 +1,54 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CuentasAhorro.UI</title>
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <title>@ViewData["Title"] - Cuentas de ahorro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    @if (IsSectionDefined("Styles"))
+    {
+        @await RenderSectionAsync("Styles", required: false)
+    }
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CuentasAhorro.UI</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <section class="container__sidebar">
+            <div class="sidebar__title">
+                <h4>Cuenta<span>Ahorro</span></h4>
+            </div>
+            <ul class="sidebar__items">
+                <li class="sidebar__items-item">
+                    <a asp-area="" asp-controller="Home" asp-action="Index"><i class="fi fi-rr-home"></i>Inicio</a>
+                </li>
+                <li class="sidebar__items-item">
+                    <a asp-area="" asp-controller="Clientes" asp-action="Index"><i class="fi fi-rr-users-alt"></i>Clientes</a>
+                </li>
+                <li class="sidebar__items-item">
+                    <a asp-area="" asp-controller="Cuentas" asp-action="Index"><i class="fi fi-rr-file-invoice-dollar"></i>Cuentas</a>
+                </li>
+            </ul>
+            <div class="sidebar__logout">
+                <a asp-area="" asp-controller="Autenticacion" asp-action="LogOut"><i class="fi fi-rr-sign-out-alt"></i>Salir</a>
+            </div>
+        </section>
+        <main role="main" class="container__main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - CuentasAhorro.UI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    @section scripts {
+        <environment include="Development">
+            <script type="text/javascript" src="~/js/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment exclude="Development">
+            <script type="text/javascript" src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>
+    }
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

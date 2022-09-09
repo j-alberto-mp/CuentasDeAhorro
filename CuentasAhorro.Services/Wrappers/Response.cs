@@ -4,7 +4,7 @@
     {
         public Response() { }
 
-        public Response(T data, string message = null)
+        public Response(T data, string? message = null)
         {
             Correct = true;
             Message = message;
@@ -18,7 +18,7 @@
         }
 
         public bool Correct { get; set; }
-        public string Message { get; set; }
+        public string? Message { get; set; }
         public T Data { get; set; }
     }
 }

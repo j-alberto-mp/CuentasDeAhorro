@@ -24,12 +24,4 @@
     <ProjectReference Include="..\CuentasAhorro.Repository\CuentasAhorro.Repository.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-    <Folder Include="Implementation\" />
-    <Folder Include="Interface\" />
-    <Folder Include="Mappings\" />
-    <Folder Include="Wrappers\" />
-  </ItemGroup>
-
 </Project>

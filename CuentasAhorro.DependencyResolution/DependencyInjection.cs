@@ -1,4 +1,5 @@
 ﻿using CuentasAhorro.Identity.Models;
+using CuentasAhorro.Repository;
 using CuentasAhorro.Repository.Context;
 using CuentasAhorro.Repository.Implementation;
 using CuentasAhorro.Repository.Interface;
@@ -40,6 +41,16 @@ namespace CuentasAhorro.DependencyResolution
             services.AddTransient<IClienteService, ClienteService>();
             services.AddTransient<ICuentaService, CuentaService>();
             services.AddTransient<ITransaccionService, TransaccionService>();
+        }
+
+        public static void Initialize(IServiceProvider serviceProvider)
+        {
+            var context = serviceProvider.GetRequiredService<DBContext>();
+
+            Identity.Seeds.DefaultRoles.SeedAsync(serviceProvider).Wait();
+            Identity.Seeds.DefaultAdmin.SeedAsync(serviceProvider).Wait();
+
+            DbInitializer.Initialize(context: context);
         }
     }
 }

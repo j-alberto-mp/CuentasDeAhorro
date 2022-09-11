@@ -16,5 +16,89 @@
     "inputFiles": [
       "wwwroot/js/home/index.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/css/cliente/registrar.min.css",
+    "inputFiles": [
+      "wwwroot/css/cliente/registrar.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/cliente/index.min.js",
+    "inputFiles": [
+      "wwwroot/js/cliente/index.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/cliente/registrar.min.js",
+    "inputFiles": [
+      "wwwroot/js/cliente/registrar.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/cliente/detalles.min.css",
+    "inputFiles": [
+      "wwwroot/css/cliente/detalles.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/cliente/detalles.min.js",
+    "inputFiles": [
+      "wwwroot/js/cliente/detalles.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/cuenta/detalles.min.css",
+    "inputFiles": [
+      "wwwroot/css/cuenta/detalles.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/cuenta/aperturar.min.js",
+    "inputFiles": [
+      "wwwroot/js/cuenta/aperturar.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/cuenta/detalles.min.js",
+    "inputFiles": [
+      "wwwroot/js/cuenta/detalles.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/cuenta/aperturar.min.css",
+    "inputFiles": [
+      "wwwroot/css/cuenta/aperturar.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/cuenta/buscar.min.css",
+    "inputFiles": [
+      "wwwroot/css/cuenta/buscar.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/cliente/buscar.min.css",
+    "inputFiles": [
+      "wwwroot/css/cliente/buscar.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/cliente/buscar.min.js",
+    "inputFiles": [
+      "wwwroot/js/cliente/buscar.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/cuenta/buscar.min.js",
+    "inputFiles": [
+      "wwwroot/js/cuenta/buscar.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/uicons/css/uicons-regular-rounded.min.css",
+    "inputFiles": [
+      "wwwroot/lib/uicons/css/uicons-regular-rounded.css"
+    ]
   }
 ]

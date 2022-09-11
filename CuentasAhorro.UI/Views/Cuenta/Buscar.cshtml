@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Buscar cuenta";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/cuenta/buscar.min.css" asp-append-version="true" />
+}
+    <h4>Búsqueda de cuentas</h4>
+    <div class="info">
+        <section class="info__basic">
+            <div class="info__search">
+                <h6>Selecciona la forma de búsqueda</h6>
+                <section>
+                    <input type="radio" name="busqueda" id="noCliente" data-busqueda="b_1" />
+                    <label for="noCliente">Número de cliente</label>
+                    <br />
+                    <div id="b_1">
+                        <label>No. Cliente</label>
+                        <input type="text" />
+                    </div>
+                </section>
+                <section>
+                    <input type="radio" name="busqueda" id="nombreCliente" data-busqueda="b_2" />
+                    <label for="nombreCliente">Nombre del cliente</label>
+                    <br />
+                    <div id="b_2">
+                        <label>Nombre</label>
+                        <input type="text" />
+                        <label>Apellido paterno</label>
+                        <input type="text" />
+                        <label>Apellido materno</label>
+                        <input type="text" />
+                    </div>
+                </section>
+                <section>
+                    <input type="radio" name="busqueda" id="noCuenta" data-busqueda="b_3" />
+                    <label for="noCuenta">Número de cuenta</label>
+                    <br />
+                    <div id="b_3">
+                        <label>No. Cuenta</label>
+                        <input type="text" />
+                    </div>
+                </section>
+            </div>
+            <div class="info__actions">
+                <button type="button" class="button--primary" id="depositar">BUSCAR</button>
+            </div>
+        </section>
+        <section class="info__details">
+            <h6>Resultados encontrados</h6>
+            <table class="info__transactions" cla>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>No. Cliente</th>
+                        <th>Cliente</th>
+                        <th>No. Cuenta</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>0000000001</td>
+                        <td>Amy Smit</td>
+                        <td>CA00 0000 0000 0000</td>
+                        <td><button>VER DETALLE</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>0000000002</td>
+                        <td>Amy Smit</td>
+                        <td>CA00 0000 0000 0000</td>
+                        <td><button>VER DETALLE</button></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>0000000003</td>
+                        <td>Amy Smit</td>
+                        <td>CA00 0000 0000 0000</td>
+                        <td><button>VER DETALLE</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+@section scripts {
+    <environment include="Development">
+        <script type="text/javascript" src="~/js/cuenta/buscar.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script type="text/javascript" src="~/js/cuenta/buscar.min.js" asp-append-version="true"></script>
+    </environment>
+}

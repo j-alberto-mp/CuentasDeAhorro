@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Detalles de la cuenta";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/cuenta/detalles.min.css" asp-append-version="true" />
+}
+    <h4>Detalles de la cuenta</h4>
+    <div class="info">
+        <section class="info__basic">
+            <div class="info__general">
+                <label><small>CUENTA</small></label>
+                <h6>CA00 0000 0000 0000</h6>
+                <label><small>BALANCE GENERAL</small></label>
+                <h4>$15,000</h4>
+            </div>
+            <div class="info__actions">
+                <button type="button" class="button--primary" id="depositar">DEPÓSITO</button>
+                <button type="button" class="button--primary" id="retirar">RETIRO</button>
+            </div>
+        </section>
+        <section class="info__details">
+            <h6>Historial de transacciones</h6>
+            <table class="info__transactions"cla>
+                <thead>
+                    <tr>
+                        <th>Movimiento</th>
+                        <th>Monto</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Depósito</td>
+                        <td class="info__transactions--add">+$2,000</td>
+                        <td>2022-09-05</td>
+                        <td>15:30</td>
+                    </tr>
+                    <tr>
+                        <td>Depósito</td>
+                        <td class="info__transactions--add">+$1,000</td>
+                        <td>2022-09-01</td>
+                        <td>10:22</td>
+                    </tr>
+                    <tr>
+                        <td>Retiro</td>
+                        <td class="info__transactions--minus">-$500</td>
+                        <td>2022-08-25</td>
+                        <td>14:16</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <div class="modal">
+        <form class="form">
+            <section class="form__group">
+                <h6 id="concepto"></h6>
+                <label id="indicacion"></label>
+                <input type="number" id="monto" />
+            </section>
+            <section class="form__group">
+                <button type="button" class="button--primary" id="guardar"></button>
+            </section>
+        </form>
+    </div>
+@section scripts {
+    <environment include="Development">
+        <script type="text/javascript" src="~/js/cuenta/detalles.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script type="text/javascript" src="~/js/cuenta/detalles.min.js" asp-append-version="true"></script>
+    </environment>
+}

@@ -1,0 +1,30 @@
+﻿.info__general {
+    text-align: center;
+    width: 50%;
+}
+
+    .info__general h4 {
+        margin-top: 15px;
+    }
+
+    .info__general h6 {
+        margin-bottom: 15px;
+    }
+
+.info__actions button {
+    margin-top: 20px;
+}
+
+.info__transactions .info__transactions--add {
+    color: #5BB318;
+}
+
+.info__transactions .info__transactions--minus {
+    color: #EB1D36;
+}
+
+@media (min-width: 768px) {
+    .info__general {
+        width: 100%;
+    }
+}

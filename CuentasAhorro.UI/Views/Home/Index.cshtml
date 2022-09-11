@@ -1,17 +1,30 @@
-﻿@{
+﻿ @{
     ViewData["Title"] = "Inicio";
 }
 
 <h1>Bienvenido</h1>
 <br />
+<h3>Clientes</h3>
 <div class="cards">
-    <section class="cards__card">
-        <h1><i class="fi fi-rr-users-alt"></i></h1>
-        <h5>Clientes</h5>
+    <section class="cards__card" id="registrar_cliente">
+        <label><i class="fi fi-rr-user-add"></i></label>
+        <p>Registrar cliente</p>
     </section>
-    <section class="cards__card">
-        <h1><i class="fi fi-rr-file-invoice-dollar"></i></h1>
-        <h5>Cuentas</h5>
+    <section class="cards__card" id="buscar_cliente">
+        <label><i class="fi fi-rr-search"></i></label>
+        <p>Buscar cliente</p>
+    </section>
+</div>
+<br />
+<h3>Cuentas</h3>
+<div class="cards">
+    <section class="cards__card" id="aperturar_cuenta">
+        <label><i class="fi fi-rr-file"></i></label>
+        <p>Aperturar cuenta</p>
+    </section>
+    <section class="cards__card" id="buscar_cuenta">
+        <label><i class="fi fi-rr-search-alt"></i></label>
+        <p>Buscar cuenta</p>
     </section>
 </div>
 

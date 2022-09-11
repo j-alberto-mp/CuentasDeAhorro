@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Detalles del cliente";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/cliente/detalles.min.css" asp-append-version="true" />
+}
+    <h4>Detalles del cliente</h4>
+    <div class="info">
+        <section class="info__basic">
+            <div class="info__personal">
+                <img src="https://cdn-icons-png.flaticon.com/512/3047/3047331.png" />
+                <div>
+                    <h6>Amy Smith</h6>
+                    <label><small>NO. CLIENTE</small></label>
+                    <label><b>0000000001</b></label>
+                    <label><small>CLIENTE DESDE</small></label>
+                    <label><b>2022-09-09</b></label>
+                </div>
+            </div>
+            <div class="info__actions">
+                <button type="button" class="button--primary" id="aperturar">APERTURAR CUENTA</button>
+            </div>
+        </section>
+        <section class="info__details">
+            <h6>Cuentas de ahorro</h6>
+            <div class="cards">
+                <div class="cards__card">
+                    <label><i class="fi fi-rr-wallet"></i></label>
+                    <p>CA00 0000 0000 0000</p>
+                </div>
+                <div class="cards__card">
+                    <label><i class="fi fi-rr-wallet"></i></label>
+                    <p>CA00 0000 0000 0000</p>
+                </div>
+                <div class="cards__card">
+                    <label><i class="fi fi-rr-wallet"></i></label>
+                    <p>CA00 0000 0000 0000</p>
+                </div>
+            </div>
+        </section>
+    </div>
+@section scripts {
+    <environment include="Development">
+        <script type="text/javascript" src="~/js/cliente/detalles.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script type="text/javascript" src="~/js/cliente/detalles.min.js" asp-append-version="true"></script>
+    </environment>
+}

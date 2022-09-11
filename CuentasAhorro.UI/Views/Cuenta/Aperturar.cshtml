@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Apertura de cuenta";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/cuenta/aperturar.min.css" asp-append-version="true" />
+}
+    <h4>Apertura de cuenta</h4>
+    <div class="main">
+        <form class="form">
+            <section class="form__group">
+                <h6>Datos del cliente</h6>
+                <label>No. Cliente</label>
+                <input type="text" value="0000000001" />
+                <label>Nombre</label>
+                <p>Amy Smith</p>
+            </section>
+            <section class="form__group">
+                <h6>Datos de la cuenta</h6>
+                <label>Monto inicial</label>
+                <input type="number" />
+            </section>
+            <section class="form__group">
+                <button type="button" class="button--primary" id="guardar">REGISTRAR</button>
+            </section>
+        </form>
+    </div>
+@section scripts {
+    <environment include="Development">
+        <script type="text/javascript" src="~/js/cuenta/aperturar.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script type="text/javascript" src="~/js/cuenta/aperturar.min.js" asp-append-version="true"></script>
+    </environment>
+}

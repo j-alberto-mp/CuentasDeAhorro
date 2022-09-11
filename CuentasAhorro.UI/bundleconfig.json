@@ -112,5 +112,11 @@
     "inputFiles": [
       "wwwroot/js/account/login.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/js/repository.min.js",
+    "inputFiles": [
+      "wwwroot/js/repository.js"
+    ]
   }
 ]

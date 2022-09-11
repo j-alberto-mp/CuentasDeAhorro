@@ -8,6 +8,11 @@
 
   <ItemGroup>
     <Content Remove="bundleconfig.json" />
+    <Content Remove="wwwroot\js\repository.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\js\repository.min.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +33,7 @@
 
   <ItemGroup>
     <None Include="bundleconfig.json" />
+    <None Include="wwwroot\js\repository.min.js" />
     <None Include="wwwroot\lib\uicons\webfonts\uicons-regular-rounded.woff2" />
   </ItemGroup>
 

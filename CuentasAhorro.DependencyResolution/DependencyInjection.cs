@@ -45,12 +45,15 @@ namespace CuentasAhorro.DependencyResolution
 
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            var context = serviceProvider.GetRequiredService<DBContext>();
+            using (var scope = serviceProvider.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<DBContext>();
 
-            Identity.Seeds.DefaultRoles.SeedAsync(serviceProvider).Wait();
-            Identity.Seeds.DefaultAdmin.SeedAsync(serviceProvider).Wait();
+                DbInitializer.Initialize(context: context);
 
-            DbInitializer.Initialize(context: context);
+                Identity.Seeds.DefaultRoles.SeedAsync(scope.ServiceProvider).Wait();
+                Identity.Seeds.DefaultAdmin.SeedAsync(scope.ServiceProvider).Wait();
+            }
         }
     }
 }

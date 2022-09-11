@@ -25,7 +25,7 @@ namespace CuentasAhorro.Identity.Seeds
                     FechaCreacion = DateTime.Now
                 };
 
-                IdentityResult userResult = await userManager.CreateAsync(user, "12345*");
+                IdentityResult userResult = await userManager.CreateAsync(user, "123Abc*");
 
                 if (userResult.Succeeded)
                 {

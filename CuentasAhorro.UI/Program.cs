@@ -43,6 +43,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.Run();
-
 DependencyInjection.Initialize(app.Services);
+
+app.Run();

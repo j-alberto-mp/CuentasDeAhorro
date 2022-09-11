@@ -25,8 +25,8 @@ namespace CuentasAhorro.Data.Models
         public string UsuarioAltaId { get; set; }
 
         [ForeignKey("UsuarioAltaId")]
-        public Usuario UsuarioAlta { get; set; }
+        public virtual Usuario UsuarioAlta { get; set; }
 
-        public ICollection<Cuenta> Cuentas { get; set; }
+        public virtual ICollection<Cuenta> Cuentas { get; set; }
     }
 }

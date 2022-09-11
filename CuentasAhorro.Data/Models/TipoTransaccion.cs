@@ -16,6 +16,6 @@ namespace CuentasAhorro.Data.Models
         public int TipoTransaccionID { get; set; }
         public string Tipo { get; set; }
 
-        public ICollection<Transaccion> Transacciones { get; set; }
+        public virtual ICollection<Transaccion> Transacciones { get; set; }
     }
 }

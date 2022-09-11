@@ -23,12 +23,12 @@ namespace CuentasAhorro.Data.Models
 
 
         [ForeignKey("TipoTransaccionID")]
-        public TipoTransaccion TipoTransaccion { get; set; }
+        public virtual TipoTransaccion TipoTransaccion { get; set; }
 
         [ForeignKey("CuentaID")]
-        public Cuenta Cuenta { get; set; }
+        public virtual Cuenta Cuenta { get; set; }
 
         [ForeignKey("UsuarioRealizoId")]
-        public Usuario UsuarioRealizo { get; set; }
+        public virtual Usuario UsuarioRealizo { get; set; }
     }
 }

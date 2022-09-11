@@ -24,11 +24,11 @@ namespace CuentasAhorro.Data.Models
         public string UsuarioAltaId { get; set; }
 
         [ForeignKey("ClienteID")]
-        public Cliente Cliente { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
         [ForeignKey("UsuarioAltaId")]
-        public Usuario UsuarioAlta { get; set; }
+        public virtual Usuario UsuarioAlta { get; set; }
 
-        public ICollection<Transaccion> Transacciones { get; set; }
+        public virtual ICollection<Transaccion> Transacciones { get; set; }
     }
 }

@@ -1,7 +1,25 @@
+using CuentasAhorro.DependencyResolution;
+using CuentasAhorro.Services;
+using CuentasAhorro.Services.Interface;
+using CuentasAhorro.UI.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+var config = builder.Configuration;
 
 // Add services to the container.
+builder.Services.AddApplicationLayer();
+builder.Services.AddDbContext(config);
+builder.Services.AddIdentity();
+builder.Services.AddPersistence();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IAuthenticatedService, AuthenticatedService>();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = $"/account/login";
+    options.LogoutPath = $"/account/logout";
+});
 
 var app = builder.Build();
 
@@ -18,6 +36,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

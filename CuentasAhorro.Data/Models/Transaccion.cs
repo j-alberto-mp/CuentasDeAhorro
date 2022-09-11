@@ -18,6 +18,7 @@ namespace CuentasAhorro.Data.Models
         public int TipoTransaccionID { get; set; }
         public int CuentaID { get; set; }
         public DateTime FechaOperacion { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Monto { get; set; }
         public string UsuarioRealizoId { get; set; }
 

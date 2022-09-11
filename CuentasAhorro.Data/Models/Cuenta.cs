@@ -8,11 +8,6 @@ namespace CuentasAhorro.Data.Models
     [Table("Cuentas", Schema = "ahorro")]
     public class Cuenta
     {
-        public Cuenta()
-        {
-            Transacciones = new HashSet<Transaccion>();
-        }
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CuentaID { get; set; }
@@ -20,6 +15,7 @@ namespace CuentasAhorro.Data.Models
         [MaxLength(16)]
         public string NumeroCuenta { get; set; }
         public DateTime FechaApertura { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Saldo { get; set; }
         public string UsuarioAltaId { get; set; }
 

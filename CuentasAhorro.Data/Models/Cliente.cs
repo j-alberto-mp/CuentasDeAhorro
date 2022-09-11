@@ -7,11 +7,6 @@ namespace CuentasAhorro.Data.Models
     [Table("Clientes", Schema = "ahorro")]
     public class Cliente
     {
-        public Cliente()
-        {
-            Cuentas = new HashSet<Cuenta>();
-        }
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ClienteID { get; set; }

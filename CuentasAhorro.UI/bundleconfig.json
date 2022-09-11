@@ -100,5 +100,17 @@
     "inputFiles": [
       "wwwroot/lib/uicons/css/uicons-regular-rounded.css"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/css/account/login.min.css",
+    "inputFiles": [
+      "wwwroot/css/account/login.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/account/login.min.js",
+    "inputFiles": [
+      "wwwroot/js/account/login.js"
+    ]
   }
 ]

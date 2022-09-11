@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Log in";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<section class="login-box">
+    <div>
+        <h2>Bienvenido</h2>
+        <br />
+        <div>
+            <label>Usuario</label>
+            <input type="text" id="userName" />
+        </div>
+        <div>
+            <label>Contraseña</label>
+            <input type="password" id="password" />
+        </div>
+        <button type="button" id="acceder">INICIAR SESIÓN</button>
+    </div>
+</section>
+
+<div class="modal">
+    <section class="modal__message">
+        <div>
+            <h5>No fue posible iniciar sesión</h5>
+            <p id="mensaje"></p>
+        </div>
+        <div>
+            <button type="button" class="button--primary" id="aceptar">ACEPTAR</button>
+        </div>
+    </section>
+</div>

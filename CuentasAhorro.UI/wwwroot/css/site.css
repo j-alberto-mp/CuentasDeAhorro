@@ -358,6 +358,16 @@ table {
             cursor: pointer;
         }
 
+    .cards .cards__card--empty {
+        justify-self: stretch;
+        text-align: center;
+        color: #808080;
+    }
+
+        .cards .cards__card--empty i {
+            font-size: calc(1.375rem + 1.5vw);
+        }
+
 .form {
     width: 400px;
     display: flex;

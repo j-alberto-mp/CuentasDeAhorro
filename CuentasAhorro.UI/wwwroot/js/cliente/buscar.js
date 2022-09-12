@@ -8,11 +8,11 @@ let buscar = (modelo) => {
     repository.httpGet('BuscarClientes', modelo)
         .then((response) => {
             if (response.correct) {
-                $('.info__transactions tbody').empty();
+                $('.info__customers tbody').empty();
 
                 if (response.data[0]) {
                     $.each(response.data, function (key, value) {
-                        $('.info__transactions tbody').append(
+                        $('.info__customers tbody').append(
                             '<tr>' +
                                 `<td>${key + 1}</td>` +
                                 `<td>${value.clienteID}</td>` +
@@ -89,7 +89,7 @@ $(function () {
         }
     });
 
-    $('.info__transactions tbody').on('click', 'button', function () {
+    $('.info__customers tbody').on('click', 'button', function () {
         window.location.href = `/Cliente/Detalles/${parseInt($(this).data('cliente'))}`
     })
 });

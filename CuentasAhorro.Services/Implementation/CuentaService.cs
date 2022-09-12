@@ -4,18 +4,23 @@ using CuentasAhorro.Data.Models;
 using CuentasAhorro.Repository.Interface;
 using CuentasAhorro.Services.Interface;
 using CuentasAhorro.Services.Wrappers;
+using System.Collections.Generic;
 
 namespace CuentasAhorro.Services.Implementation
 {
     public class CuentaService : ICuentaService
     {
         private readonly ICrudRepository<Cuenta> repository;
+        private readonly ICrudRepository<Transaccion> transaccionRepository;
+        private readonly ICrudRepository<Cliente> clienteRepository;
         private readonly IMapper mapper;
         private readonly IAuthenticatedService authenticated;
 
-        public CuentaService(ICrudRepository<Cuenta> repository, IMapper mapper, IAuthenticatedService authenticated)
+        public CuentaService(ICrudRepository<Cuenta> repository, ICrudRepository<Transaccion> transaccionRepository, ICrudRepository<Cliente> clienteRepository, IMapper mapper, IAuthenticatedService authenticated)
         {
             this.repository = repository;
+            this.transaccionRepository = transaccionRepository;
+            this.clienteRepository = clienteRepository;
             this.mapper = mapper;
             this.authenticated = authenticated;
         }
@@ -35,6 +40,20 @@ namespace CuentasAhorro.Services.Implementation
             }
 
             var result = await repository.InsertAsync(db);
+
+            if(result.CuentaID > 0)
+            {
+                var transaction = new Transaccion
+                {
+                    CuentaID = result.CuentaID,
+                    FechaOperacion = TimeZoneInfo.ConvertTime(DateTime.Now, Helpers.GeneralHelper.TimeZone),
+                    TipoTransaccionID = 1,
+                    UsuarioRealizoId = authenticated.UsuarioId,
+                    Monto = result.Saldo
+                };
+
+                _ = await transaccionRepository.InsertAsync(transaction);
+            }
 
             return new Response<CuentaViewModel>(mapper.Map<CuentaViewModel>(result));
         }
@@ -88,6 +107,71 @@ namespace CuentasAhorro.Services.Implementation
         public Task<Response<bool>> DeleteAsync(object id)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<Response<List<CuentaClienteViewModel>>> SearchAsync(CuentaClienteViewModel model)
+        {
+            List<CuentaClienteViewModel> result = new();
+
+            if (!string.IsNullOrEmpty(model.NumeroCuenta))
+            {
+                var cuenta = await repository.GetAsync(q => q.NumeroCuenta == model.NumeroCuenta.Replace(" ", ""));
+
+                if (cuenta != null)
+                {
+                    var cliente = await clienteRepository.GetAsync(q => q.ClienteID == cuenta.ClienteID);
+
+                    result.Add(new CuentaClienteViewModel
+                    {
+                        CuentaID = cuenta.CuentaID,
+                        ClienteID = cliente.ClienteID,
+                        NumeroCuenta = cuenta.NumeroCuenta,
+                        Nombre = cliente.Nombre,
+                        ApellidoPaterno = cliente.ApellidoPaterno,
+                        ApellidoMaterno = cliente.ApellidoMaterno
+                    });
+                }
+            }
+            else
+            {
+                List<Cliente> clientes = new();
+
+                if(model.ClienteID > 0)
+                {
+                    clientes = await clienteRepository.GetListAsync(q => q.ClienteID == model.ClienteID);
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(model.Nombre) && !string.IsNullOrEmpty(model.ApellidoPaterno) && !string.IsNullOrEmpty(model.ApellidoMaterno))
+                    {
+                        clientes = await clienteRepository.GetListAsync(q => q.Nombre == model.Nombre && q.ApellidoPaterno == model.ApellidoPaterno && q.ApellidoMaterno == model.ApellidoMaterno);
+                    }
+                    else
+                    {
+                        clientes = await clienteRepository.GetListAsync(q => q.Nombre == model.Nombre || q.ApellidoPaterno == model.ApellidoPaterno || q.ApellidoMaterno == model.ApellidoMaterno);
+                    }
+                }
+
+                foreach (var cliente in clientes)
+                {
+                    var cuentas = await repository.GetListAsync(q => q.ClienteID == cliente.ClienteID);
+
+                    foreach (var cuenta in cuentas)
+                    {
+                        result.Add(new CuentaClienteViewModel
+                        {
+                            CuentaID = cuenta.CuentaID,
+                            ClienteID = cliente.ClienteID,
+                            NumeroCuenta = cuenta.NumeroCuenta,
+                            Nombre = cliente.Nombre,
+                            ApellidoPaterno = cliente.ApellidoPaterno,
+                            ApellidoMaterno = cliente.ApellidoMaterno
+                        });
+                    }
+                }
+            }
+
+            return new Response<List<CuentaClienteViewModel>>(result);
         }
     }
 }

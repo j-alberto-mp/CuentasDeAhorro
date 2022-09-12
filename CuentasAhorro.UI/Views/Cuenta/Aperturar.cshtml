@@ -6,26 +6,32 @@
     <link rel="stylesheet" href="~/css/cuenta/aperturar.min.css" asp-append-version="true" />
 }
     <h4>Apertura de cuenta</h4>
+    <input type="hidden" value="@ViewBag.Id" id="clienteID" />
     <div class="main">
         <form class="form">
             <section class="form__group">
                 <h6>Datos del cliente</h6>
                 <label>No. Cliente</label>
-                <input type="text" value="0000000001" />
+                <input type="text" id="numeroCliente" disabled />
                 <label>Nombre</label>
-                <p>Amy Smith</p>
+                <input type="text" id="nombre" disabled />
+                <label>Apellido paterno</label>
+                <input type="text" id="apellidoPaterno" disabled />
+                <label>Apellido materno</label>
+                <input type="text" id="apellidoMaterno" disabled />
             </section>
             <section class="form__group">
-                <h6>Datos de la cuenta</h6>
+                <h6>Detalles de la cuenta de ahorro</h6>
                 <label>Monto inicial</label>
-                <input type="number" />
+                <input type="text" id="montoCuenta" />
             </section>
             <section class="form__group">
-                <button type="button" class="button--primary" id="guardar">REGISTRAR</button>
+                <button type="button" class="button--primary" id="guardar" disabled>REGISTRAR</button>
             </section>
         </form>
     </div>
 @section scripts {
+    <script src="~/lib/jquery-mask/jquery.mask.min.js"></script>
     <environment include="Development">
         <script type="text/javascript" src="~/js/cuenta/aperturar.js" asp-append-version="true"></script>
     </environment>

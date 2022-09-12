@@ -10,6 +10,6 @@ namespace CuentasAhorro.Services.Interface
 {
     public interface ICuentaService : IBaseService<CuentaViewModel>
     {
-
+        Task<Response<List<CuentaClienteViewModel>>> SearchAsync(CuentaClienteViewModel model);
     }
 }

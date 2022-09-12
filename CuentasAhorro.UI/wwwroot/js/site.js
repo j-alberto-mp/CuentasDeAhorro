@@ -9,6 +9,17 @@
     });
 };
 
+const processing = (text) => {
+    swal({
+        icon: 'info',
+        title: 'Espera un momento',
+        text: text,
+        buttons: false,
+        closeOnClickOutside: false,
+        closeOnEsc: false
+    });
+};
+
 const info = (title, text) => {
     swal({
         icon: 'info',
@@ -65,6 +76,10 @@ const clearInputs = () => {
     $('input[type="number"]').val('');
     $('input[type="password"]').val('');
 };
+
+const format = (value) => value.replace(/(?<=^(?:.{4})+)(?!$)/g, ' ');
+
+const currency = (value) => parseFloat(value, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
 
 $(function () {
     let collapsed = sessionStorage.getItem('collapsed');

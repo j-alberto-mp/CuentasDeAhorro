@@ -118,6 +118,10 @@ button {
         opacity: 1;
     }
 
+    button.no--padding {
+        padding: 0px !important;
+    }
+
 ul {
     list-style: none;
 }

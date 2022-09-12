@@ -15,11 +15,11 @@
     margin-top: 20px;
 }
 
-.info__transactions .info__transactions--add {
+.info__transactions .info--positive {
     color: #5BB318;
 }
 
-.info__transactions .info__transactions--minus {
+.info__transactions .info--negative {
     color: #EB1D36;
 }
 

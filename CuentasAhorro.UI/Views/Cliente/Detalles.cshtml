@@ -6,16 +6,17 @@
     <link rel="stylesheet" href="~/css/cliente/detalles.min.css" asp-append-version="true" />
 }
     <h4>Detalles del cliente</h4>
+    <input type="hidden" value="@ViewBag.Id" id="clienteID" />
     <div class="info">
         <section class="info__basic">
             <div class="info__personal">
                 <img src="https://cdn-icons-png.flaticon.com/512/3047/3047331.png" />
                 <div>
-                    <h6>Amy Smith</h6>
+                    <h6 id="nombre"></h6>
                     <label><small>NO. CLIENTE</small></label>
-                    <label><b>0000000001</b></label>
+                    <label id="numero"></label>
                     <label><small>CLIENTE DESDE</small></label>
-                    <label><b>2022-09-09</b></label>
+                    <label id="fecha"></label>
                 </div>
             </div>
             <div class="info__actions">
@@ -24,20 +25,7 @@
         </section>
         <section class="info__details">
             <h6>Cuentas de ahorro</h6>
-            <div class="cards">
-                <div class="cards__card">
-                    <label><i class="fi fi-rr-wallet"></i></label>
-                    <p>CA00 0000 0000 0000</p>
-                </div>
-                <div class="cards__card">
-                    <label><i class="fi fi-rr-wallet"></i></label>
-                    <p>CA00 0000 0000 0000</p>
-                </div>
-                <div class="cards__card">
-                    <label><i class="fi fi-rr-wallet"></i></label>
-                    <p>CA00 0000 0000 0000</p>
-                </div>
-            </div>
+            <div class="cards"></div>
         </section>
     </div>
 @section scripts {

@@ -15,8 +15,8 @@
                     <label for="noCliente">Número de cliente</label>
                     <br />
                     <div id="b_1">
-                        <label>No. Cliente</label>
-                        <input type="text" />
+                        <label for="numeroCliente">No. Cliente</label>
+                        <input type="text" id="numeroCliente" />
                     </div>
                 </section>
                 <section>
@@ -24,17 +24,17 @@
                     <label for="nombreCliente">Nombre del cliente</label>
                     <br />
                     <div id="b_2">
-                        <label>Nombre</label>
-                        <input type="text" />
-                        <label>Apellido paterno</label>
-                        <input type="text" />
-                        <label>Apellido materno</label>
-                        <input type="text" />
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre"/>
+                        <label for="apellidoPaterno">Apellido paterno</label>
+                        <input type="text" id="apellidoPaterno"/>
+                        <label for="apellidoMaterno">Apellido materno</label>
+                        <input type="text" id="apellidoMaterno" />
                     </div>
                 </section>
             </div>
             <div class="info__actions">
-                <button type="button" class="button--primary" id="depositar">BUSCAR</button>
+                <button type="button" class="button--primary" id="buscar" disabled>BUSCAR</button>
             </div>
         </section>
         <section class="info__details">
@@ -45,33 +45,16 @@
                         <th>#</th>
                         <th>No. Cliente</th>
                         <th>Cliente</th>
+                        <th>Fecha registro</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>0000000001</td>
-                        <td>Amy Smit</td>
-                        <td><button>VER DETALLE</button></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>0000000002</td>
-                        <td>Amy Smit</td>
-                        <td><button>VER DETALLE</button></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>0000000003</td>
-                        <td>Amy Smit</td>
-                        <td><button>VER DETALLE</button></td>
-                    </tr>
-                </tbody>
+                <tbody></tbody>
             </table>
         </section>
     </div>
 @section scripts {
+    <script src="~/lib/jquery-mask/jquery.mask.min.js"></script>
     <environment include="Development">
         <script type="text/javascript" src="~/js/cliente/buscar.js" asp-append-version="true"></script>
     </environment>

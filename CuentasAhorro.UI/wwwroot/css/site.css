@@ -101,6 +101,10 @@ button {
     transition: opacity 0.35s ease-in;
 }
 
+    button[disabled] {
+        opacity: 0.5 !important;
+    }
+
     button.button--primary {
         color: #ffffff;
         background: var(--bg-primary);
@@ -110,7 +114,7 @@ button {
         background: #d0d0d7;
     }
 
-    button:hover{
+    button:hover {
         opacity: 1;
     }
 
@@ -335,6 +339,15 @@ table {
         .info .info__search div {
             margin-top: 10px;
             display: none;
+        }
+
+        .info .info__search label,
+        .info .info__search input[type=text] {
+            width: 100%;
+        }
+
+        .info .info__search input[type=text] {
+            margin: 0 0 10px 0;
         }
 
 .cards {

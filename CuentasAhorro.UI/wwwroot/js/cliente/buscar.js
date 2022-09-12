@@ -84,7 +84,7 @@ $(function () {
                 buscar(modelo);
             }
             else {
-                info('No se puede realizar la búsqueda', 'Debes ingresar una valor en almenos uno de los campos');
+                info('No se puede realizar la búsqueda', 'Debes ingresar un valor en al menos uno de los campos');
             }
         }
     });

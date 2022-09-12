@@ -9,6 +9,17 @@
     });
 };
 
+const info = (title, text) => {
+    swal({
+        icon: 'info',
+        title: title,
+        text: text,
+        button: 'ACEPTAR',
+        closeOnClickOutside: false,
+        closeOnEsc: false
+    });
+};
+
 const success = (title, text, redirect) => {
     swal({
         icon: 'success',
@@ -17,7 +28,7 @@ const success = (title, text, redirect) => {
         buttons: false,
         closeOnClickOutside: false,
         closeOnEsc: false,
-        timer: 2500,
+        timer: 2500
     }).then(() => {
         if (redirect) {
             window.location.href = redirect;
@@ -33,7 +44,7 @@ const serviceError = (text) => {
         buttons: false,
         closeOnClickOutside: false,
         closeOnEsc: false,
-        timer: 2500,
+        timer: 2500
     });
 };
 
@@ -45,8 +56,14 @@ const requestError = (text) => {
         buttons: false,
         closeOnClickOutside: false,
         closeOnEsc: false,
-        timer: 2500,
+        timer: 2500
     });
+};
+
+const clearInputs = () => {
+    $('input[type="text"]').val('');
+    $('input[type="number"]').val('');
+    $('input[type="password"]').val('');
 };
 
 $(function () {

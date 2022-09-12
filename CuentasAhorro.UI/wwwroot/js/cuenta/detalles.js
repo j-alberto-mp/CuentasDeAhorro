@@ -18,7 +18,7 @@ let obtenerCuenta = () => {
                     $('#numeroCuenta').html(format(response.data.numeroCuenta));
                     $('#saldoCuenta').html(`$${currency(response.data.saldo)}`);
 
-                    swal.close();
+                    obtenerTransacciones();
                 }
                 else {
                     info('No se encontraron resultados', 'No se encontró ninguna cuenta con el ID proporcionado');
@@ -37,6 +37,8 @@ let obtenerTransacciones = () => {
     transaccionRepository.httpGet('ObtenerTransacciones', { id: $('#cuentaID').val() })
         .then((response) => {
             if (response.correct) {
+                $('.info__transactions tbody').empty();
+
                 if (response.data[0]) {
                     $.each(response.data, function (key, value) {
                         $('.info__transactions tbody').append(
@@ -48,9 +50,9 @@ let obtenerTransacciones = () => {
                             '</tr>'
                         );
                     });
-
-                    swal.close();
                 }
+
+                swal.close();
             }
             else {
                 requestError(response.message);
@@ -96,6 +98,8 @@ let registrarTransaccion = () => {
         .catch((error) => {
             serviceError(`${error.status} - ${error.statusText}`);
         });
+
+    clearInputs();
 };
 
 $(function () {
@@ -123,13 +127,15 @@ $(function () {
     });
 
     $('#guardar').on('click', function () {
-        if (parseInt($('#montoCuenta').val()) > 0) {
+        let monto = $('#monto').val().replace(',', '');
+
+        if (parseFloat(monto) > 0) {
             $('.modal').toggleClass('visible');
 
             registrarTransaccion();
         }
         else {
-            if (parseInt($('#montoCuenta').val()) === 0) {
+            if (parseFloat(monto) === 0) {
                 info('No se puede realizar la transacción', 'La cantidad no puede ser igual a 0');
             }
             else {

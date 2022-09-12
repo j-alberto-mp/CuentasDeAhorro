@@ -41,18 +41,21 @@ namespace CuentasAhorro.Services.Implementation
 
             var result = await repository.InsertAsync(db);
 
-            if(result.CuentaID > 0)
+            if(result != null)
             {
-                var transaction = new Transaccion
+                if (result.Saldo > 0)
                 {
-                    CuentaID = result.CuentaID,
-                    FechaOperacion = TimeZoneInfo.ConvertTime(DateTime.Now, Helpers.GeneralHelper.TimeZone),
-                    TipoTransaccionID = 1,
-                    UsuarioRealizoId = authenticated.UsuarioId,
-                    Monto = result.Saldo
-                };
+                    var transaction = new Transaccion
+                    {
+                        CuentaID = result.CuentaID,
+                        FechaOperacion = TimeZoneInfo.ConvertTime(DateTime.Now, Helpers.GeneralHelper.TimeZone),
+                        TipoTransaccionID = 1,
+                        UsuarioRealizoId = authenticated.UsuarioId,
+                        Monto = result.Saldo
+                    };
 
-                _ = await transaccionRepository.InsertAsync(transaction);
+                    _ = await transaccionRepository.InsertAsync(transaction);
+                }
             }
 
             return new Response<CuentaViewModel>(mapper.Map<CuentaViewModel>(result));

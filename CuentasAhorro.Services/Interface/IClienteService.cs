@@ -1,4 +1,5 @@
 ﻿using CuentasAhorro.Application.ViewModels;
+using CuentasAhorro.Services.Wrappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace CuentasAhorro.Services.Interface
 {
     public interface IClienteService : IBaseService<ClienteViewModel>
     {
+        Task<Response<List<ClienteViewModel>>> SearchAsync(ClienteViewModel model);
     }
 }

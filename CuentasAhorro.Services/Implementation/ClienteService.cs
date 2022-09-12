@@ -85,5 +85,28 @@ namespace CuentasAhorro.Services.Implementation
                 return new Response<bool>("No se encontró el registro del cliente");
             }
         }
+
+        public async Task<Response<List<ClienteViewModel>>> SearchAsync(ClienteViewModel model)
+        {
+            var result = new List<Cliente>();
+
+            if(model.ClienteID > 0)
+            {
+                result = await repository.GetListAsync(q => q.ClienteID == model.ClienteID);
+            }
+            else
+            {
+                if(!string.IsNullOrEmpty(model.Nombre) && !string.IsNullOrEmpty(model.ApellidoPaterno) && !string.IsNullOrEmpty(model.ApellidoMaterno))
+                {
+                    result = await repository.GetListAsync(q => q.Nombre == model.Nombre && q.ApellidoPaterno == model.ApellidoPaterno && q.ApellidoMaterno == model.ApellidoMaterno);
+                }
+                else
+                {
+                    result = await repository.GetListAsync(q => q.Nombre == model.Nombre || q.ApellidoPaterno == model.ApellidoPaterno || q.ApellidoMaterno == model.ApellidoMaterno);
+                }
+            }
+
+            return new Response<List<ClienteViewModel>>(mapper.Map<List<ClienteViewModel>>(result));
+        }
     }
 }

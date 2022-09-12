@@ -28,8 +28,8 @@ let obtenerCuentas = () => {
             if (response.correct) {
                 if (response.data[0]) {
                     $.each(response.data, function (key, value) {
-                        $('.cards').append(`<div class="cards__card" data-cuenta="${value.cuentaID}"><label><i class="fi fi-rr-wallet"></i></label><p>${value.numeroCuenta}</p></div>`);
-                    })
+                        $('.cards').append(`<div class="cards__card" data-cuenta="${value.cuentaID}"><label><i class="fi fi-rr-wallet"></i></label><p>${format(value.numeroCuenta)}</p></div>`);
+                    });
                 }
                 else {
                     $('.cards').append('<div class="cards__card--empty"><i class="fi fi-rr-engine-warning"></i><h6>El cliente aún no ha aperturado ninguna cuenta de ahorro</h5></div>');
@@ -44,7 +44,7 @@ let obtenerCuentas = () => {
         .catch((error) => {
             serviceError(`${error.status} - ${error.statusText}`);
         });
-}
+};
 
 $(function () {
     moment.tz.setDefault('America/Mexico_City');
@@ -64,7 +64,7 @@ $(function () {
         window.location.href = `/Cuenta/Aperturar/${parseInt($('#clienteID').val())}`;
     });
 
-    $('.cards__card').on('click', function () {
+    $('.cards').on('click', '.cards__card', function () {
         window.location.href = `/Cuenta/Detalles/${parseInt($(this).data('cuenta'))}`;
     });
 });

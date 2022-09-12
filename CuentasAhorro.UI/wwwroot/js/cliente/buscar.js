@@ -17,7 +17,7 @@ let buscar = (modelo) => {
                                 `<td>${key + 1}</td>` +
                                 `<td>${value.clienteID}</td>` +
                                 `<td>${value.nombreCompleto}</td>` +
-                                `<td>${moment(response.data.fechaRegistro).format('YYYY-MM-DD') }</td>` +
+                                `<td>${moment(value.fechaRegistro).format('YYYY-MM-DD') }</td>` +
                                 `<td><button type="button" data-cliente="${value.clienteID}">VER DETALLE</button></td>` +
                             '</tr>'
                         )
